@@ -20,8 +20,7 @@ TEST(potter, BuySecondAgain)
 {
     potter machine;
     machine.buy(1, 1);
-    machine.buy(2, 1);
-    machine.buy(2, 1);
+    machine.buy(2, 2);
     EXPECT_EQ(machine.get_total_price(), 290);
 }
 
