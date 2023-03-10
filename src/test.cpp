@@ -3,8 +3,8 @@
 
 TEST(potter, BuyFirst)
 {
-    int price;
+    int price = 0;
     potter machine;
-    price = machine.buy(1, 1);
+    price += machine.buy(1, 1);
     EXPECT_EQ(price, 100);
 }
