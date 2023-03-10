@@ -1,9 +1,9 @@
 #include "potter.h"
 
 potter::potter() :
-    episodes(), price(0)
+    price(0)
 {
-    /* empty */
+    this->episodes.reset(new int[this->EPISODE_COUNT]());
 }
 
 potter::~potter()
@@ -24,17 +24,18 @@ int potter::get_total_price(void)
 
 void potter::update_discount(void)
 {
-    if (this->episodes[0] && this->episodes[1] && !this->episodes[2]) {
-        this->price = this->BASE_PRICE * 2 * 0.95;
-        this->episodes[0]--;
-        this->episodes[1]--;
-    } else if (this->episodes[0] && this->episodes[1] && this->episodes[2]) {
-        this->price = this->BASE_PRICE * 3 * 0.9;
-        this->episodes[0]--;
-        this->episodes[1]--;
-        this->episodes[2]--;
+    int diff_cnt = 0;
+    for (int i = 0; i < EPISODE_COUNT; ++i) {
+        if (this->episodes[i]) {
+            diff_cnt++;
+            this->episodes[i]--;
+        }
     }
 
-    this->price += this->episodes[0] * this->BASE_PRICE;
-    this->price += this->episodes[1] * this->BASE_PRICE;
+    this->price = this->BASE_PRICE * diff_cnt;
+    this->price *= this->DISCOUNT_TABLE[diff_cnt];
+
+    for (int i = 0; i < EPISODE_COUNT; ++i) {
+        this->price += this->BASE_PRICE * this->episodes[i];
+    }
 }
