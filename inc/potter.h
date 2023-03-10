@@ -6,8 +6,15 @@ public:
     potter();
     ~potter();
 
-    int buy(
+    void buy(
         int episode,
         int count
     );
+
+    int get_total_price(void);
+private:
+    int episodes[7];
+    int price;
+
+    void update_discount(void);
 };
