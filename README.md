@@ -39,3 +39,4 @@ TDD potter-Kata practice by gtest
 
 - [gtest](https://google.github.io/googletest/quickstart-cmake.html)
 - [potter-kata](https://ihower.tw/blog/archives/8162)
+- [potter-kata](https://codingdojo.org/kata/Potter/)
