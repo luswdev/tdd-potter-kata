@@ -15,6 +15,7 @@ public:
 private:
     int episodes[7];
     int price;
+    const int BASE_PRICE = 100;
 
     void update_discount(void);
 };

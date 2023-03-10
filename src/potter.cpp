@@ -25,11 +25,11 @@ int potter::get_total_price(void)
 void potter::update_discount(void)
 {
     if (this->episodes[0] && this->episodes[1]) {
-        this->price = 100 * 2 * 0.95;
+        this->price = this->BASE_PRICE * 2 * 0.95;
         this->episodes[0]--;
         this->episodes[1]--;
     }
 
-    this->price += this->episodes[0] * 100;
-    this->price += this->episodes[1] * 100;
+    this->price += this->episodes[0] * this->BASE_PRICE;
+    this->price += this->episodes[1] * this->BASE_PRICE;
 }
