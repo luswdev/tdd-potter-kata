@@ -13,7 +13,7 @@ potter::~potter()
 
 void potter::buy(int episode, int count)
 {
-    this->episodes[episode - 1]++;
+    this->episodes[episode - 1] += count;
 }
 
 int potter::get_total_price(void)
