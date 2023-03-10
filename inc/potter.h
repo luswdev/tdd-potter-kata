@@ -16,7 +16,7 @@ public:
     int get_total_price(void);
 private:
     const int BASE_PRICE = 100;
-    const float DISCOUNT_TABLE[6] = { 0, 1, 0.95, 0.9, 0.8, 0.75 };
+    const float DISCOUNT_TABLE[6] = { 0.0f, 1.0f, 0.95f, 0.9f, 0.8f, 0.75f };
     const int EPISODE_COUNT = 7;
 
     std::unique_ptr<int[]> episodes;
